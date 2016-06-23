@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["react"],
+  "keywords": [
+    "react"
+  ],
   "author": "mizchi",
   "license": "MIT",
   "peerDependencies": {
@@ -14,5 +16,17 @@
   },
   "devDependencies": {
     "react": "15.1.0"
-  }
+  },
+  "directories": {
+    "example": "example"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mizchi/react-dispatcher-decorator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mizchi/react-dispatcher-decorator/issues"
+  },
+  "homepage": "https://github.com/mizchi/react-dispatcher-decorator#readme"
 }
