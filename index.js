@@ -5,7 +5,7 @@ var DISPATCHER_TYPES = {dispatch: React.PropTypes.any};
 
 function subscriber(subscribe) {
   return function(cls) {
-    cls.childContextTypes = Object.assign(DISPATCHER_TYPES, cls.childContextTypes);
+    cls.childContextTypes = Object.assign({}, DISPATCHER_TYPES, cls.childContextTypes);
     var originalGetChildContext = cls.prototype.getChildContext;
     Object.defineProperty(cls.prototype, 'getChildContext', {
       value: function() {
