@@ -1,5 +1,5 @@
 var EventEmitter = require("events").EventEmitter;
-const React = require("react");
+var React = require("react");
 
 var DISPATCHER_TYPES = {dispatch: React.PropTypes.any};
 
@@ -10,10 +10,10 @@ function subscriber(subscribe) {
     Object.defineProperty(cls.prototype, 'getChildContext', {
       value: function() {
         // merge with original getChildContext
-        const oldResult = originalGetChildContext && originalGetChildContext.apply(this, arguments);
+        var oldResult = originalGetChildContext && originalGetChildContext.apply(this, arguments);
 
         if (!this.emitter) {
-          const emitter = new EventEmitter;
+          var emitter = new EventEmitter;
           this.emitter = emitter;
           subscribe(this, emitter.on.bind(emitter), emitter);
         }
@@ -37,7 +37,7 @@ function subscriber(subscribe) {
 }
 
 function dispatcher(cls) {
-  cls.contextTypes = Object.assign(DISPATCHER_TYPES, cls.contextTypes);
+  cls.contextTypes = Object.assign({}, DISPATCHER_TYPES, cls.contextTypes);
 }
 
-module.exports = {subscriber, dispatcher};
+module.exports = {subscriber: subscriber, dispatcher: dispatcher};
