@@ -1,6 +1,6 @@
 {
   "name": "react-dispatcher-decorator",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "dispatcher decorator for react",
   "main": "index.js",
   "scripts": {
