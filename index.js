@@ -8,6 +8,7 @@ function subscriber(subscribe) {
     cls.childContextTypes = Object.assign({}, DISPATCHER_TYPES, cls.childContextTypes);
     var originalGetChildContext = cls.prototype.getChildContext;
     Object.defineProperty(cls.prototype, 'getChildContext', {
+      configurable: true,
       value: function() {
         // merge with original getChildContext
         var oldResult = originalGetChildContext && originalGetChildContext.apply(this, arguments);
@@ -28,6 +29,7 @@ function subscriber(subscribe) {
 
     var originalCompenentWillUnmount = cls.prototype.componentWillUnmount;
     Object.defineProperty(cls.prototype, 'componentWillUnmount', {
+      configurable: true,
       value: function() {
         originalCompenentWillUnmount && originalCompenentWillUnmount.apply(this, arguments);
         this.emitter.removeAllListeners();
