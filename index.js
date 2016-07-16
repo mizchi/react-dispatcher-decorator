@@ -42,4 +42,4 @@ function dispatcher(cls) {
   cls.contextTypes = Object.assign({}, DISPATCHER_TYPES, cls.contextTypes);
 }
 
-module.exports = {subscriber: subscriber, dispatcher: dispatcher};
+module.exports = {subscriber: subscriber, dispatcher: dispatcher, ContextTypes: DISPATCHER_TYPES};
