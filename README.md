@@ -46,7 +46,7 @@ const el = document.querySelector(".main");
 ReactDOM.render(<App/>, el);
 ```
 
-# v1.1.0
+# v0.2.0
 
 - Added FSA style. `dispatch` and `subscribe` can take 1 object.
 
