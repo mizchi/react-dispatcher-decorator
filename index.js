@@ -16,12 +16,24 @@ function subscriber(subscribe) {
         if (!this.emitter) {
           var emitter = new EventEmitter;
           this.emitter = emitter;
-          subscribe(this, emitter.on.bind(emitter), emitter);
+          subscribe(this, function() {
+            var args = arguments
+            if (args.length === 1 && args[0] instanceof Object) {
+              emitter.on.call(emitter, 'rdr-internal:dispatch-fsa', args[0])
+            } else {
+              emitter.on.apply(emitter, arguments)
+            }
+          }, emitter);
         }
         var self = this;
         return Object.assign({}, oldResult, {
           dispatch: function() {
-            return self.emitter.emit.apply(self.emitter, arguments);
+            var args =  arguments;
+            if (args.length === 1 && args[0] instanceof Object) {
+              return self.emitter.emit.call(self.emitter, 'rdr-internal:dispatch-fsa', args[0]);
+            } else {
+              return self.emitter.emit.apply(self.emitter, arguments);
+            }
           }
         });
       }
