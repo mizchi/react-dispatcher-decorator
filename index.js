@@ -1,7 +1,8 @@
 var EventEmitter = require("events").EventEmitter;
 var React = require("react");
+var PropTypes = require("prop-types");
 
-var DISPATCHER_TYPES = {dispatch: React.PropTypes.any};
+var DISPATCHER_TYPES = {dispatch: PropTypes.any};
 
 function subscriber(subscribe) {
   return function(cls) {

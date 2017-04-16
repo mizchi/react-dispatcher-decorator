@@ -20,7 +20,9 @@
   "directories": {
     "example": "example"
   },
-  "dependencies": {},
+  "dependencies": {
+    "prop-types": "^15.5.8"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mizchi/react-dispatcher-decorator.git"
